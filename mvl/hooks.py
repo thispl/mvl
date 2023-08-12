@@ -13,7 +13,7 @@ app_license = "MIT"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/mvl/css/mvl.css"
+app_include_css = "/assets/mvl/css/mvl.css"
 # app_include_js = "/assets/mvl/js/mvl.js"
 
 # include js, css files in header of web template
@@ -95,13 +95,11 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-#	"*": {
-#		"on_update": "method",
-#		"on_cancel": "method",
-#		"on_trash": "method"
-#	}
-# }
+doc_events = {
+	"Salary Slip":{
+		"after_insert":"mvl.custom.get_total_payable_to_mvl",
+	},
+}
 
 # Scheduled Tasks
 # ---------------

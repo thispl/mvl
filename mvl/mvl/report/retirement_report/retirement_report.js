@@ -8,15 +8,16 @@ frappe.query_reports["Retirement Report"] = {
 			"fieldname":"from_date",
 			"label": __("From Date"),
 			"fieldtype": "Date",
-			"default": frappe.datetime.year_start(),
+			// "default":frappe.datetime.year_start(),
 			"reqd": 1,
+			
 			"width": "100px"
 		},
 		{
 			"fieldname":"to_date",
 			"label": __("To Date"),
 			"fieldtype": "Date",
-			"default": frappe.datetime.year_end(),
+			// "default": frappe.datetime.year_end(),
 			"reqd": 1,
 			"width": "100px"
 		},

@@ -2,7 +2,7 @@
 // For license information, please see license.txt
 /* eslint-disable */
 
-frappe.query_reports["Monthwise Salary Register"] = {
+frappe.query_reports["Monthwise Salary Register Against Invoice"] = {
 	"filters": [
 		{
 			"fieldname":"from_date",
@@ -21,10 +21,10 @@ frappe.query_reports["Monthwise Salary Register"] = {
 			"width": "100px"
 		},
 		{
-			"fieldname": "principal_employer",
+			"fieldname": "invoice_name",
 			"fieldtype": "Link",
-			"options": "Principal Employer",
-			"label": __("Principal Employer"),
+			"options": "Invoice Name",
+			"label": __("Invoice Name"),
 			"width": "50px",
 			"reqd": 1,
 		},
@@ -43,8 +43,7 @@ frappe.query_reports["Monthwise Salary Register"] = {
 			"fieldtype": "Link",
 			"options": "Company",
 			"default": "Mercantile Ventures Limited",
-			"width": "100px",
-			"reqd": 1,
+			"width": "50px",
 			"read_only":1
 		},
 		{
@@ -56,14 +55,14 @@ frappe.query_reports["Monthwise Salary Register"] = {
 			"width": "100px"
 		}
 	],
-	onload: function (report) {
-		var to_date = frappe.query_report.get_filter('to_date');
-		to_date.refresh();
-		var c = frappe.datetime.add_months(frappe.datetime.month_end())
-		to_date.set_input(frappe.datetime.add_days(c))	
-		var from_date = frappe.query_report.get_filter('from_date');
-		from_date.refresh();
-		var d = frappe.datetime.add_months(frappe.datetime.month_start(),)
-		from_date.set_input(frappe.datetime.add_days(d))	
-	}	
+	// onload: function (report) {
+	// 	var to_date = frappe.query_report.get_filter('to_date');
+	// 	to_date.refresh();
+	// 	var c = frappe.datetime.add_months(frappe.datetime.month_end())
+	// 	to_date.set_input(frappe.datetime.add_days(c))	
+	// 	var from_date = frappe.query_report.get_filter('from_date');
+	// 	from_date.refresh();
+	// 	var d = frappe.datetime.add_months(frappe.datetime.month_start(),)
+	// 	from_date.set_input(frappe.datetime.add_days(d))	
+	// }
 };

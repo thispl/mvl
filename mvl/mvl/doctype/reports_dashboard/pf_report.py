@@ -7,7 +7,7 @@ import math
 import frappe
 import json
 import requests
-import pandas as pd
+# import pandas as pd
 import openpyxl
 from six import BytesIO
 from frappe.utils import gzip_decompress
@@ -25,11 +25,16 @@ def get_data_pf():
     )
     attached_file = frappe.get_doc("File", attached_file_name)
     compressed_content = attached_file.get_content()
+    # frappe.errprint(compressed_content)
     uncompressed_content = gzip_decompress(compressed_content)
     dos = json.loads(uncompressed_content.decode("utf-8"))
-    result = ""     
-    for do in dos:
+    result = ""  
+    # frappe.errprint(dos)   
+    frappe.log_error(title='do',message=dos['result'])
+    for do in dos['result']:
+        
         result += str(do['employee']) + "#~#" + str(do['employee_name']) + "#~#" + str(do['bank_account_number']) + "#~#" + str(do['ifsc_code']) + "#~#" + str(do['gross_pay']) + "#~#" + str(do['pf']) or 0
+        # result += ''
     frappe.response["result"] = result
     frappe.response["type"] = "txt"
     frappe.response["doctype"] = "Salary Slip PF"
@@ -50,7 +55,7 @@ def get_data_esi():
     uncompressed_content = gzip_decompress(compressed_content)
     dos = json.loads(uncompressed_content.decode("utf-8"))
     result = ""
-    for do in dos:
+    for do in dos['result']:
         result +=  str(do['employee']) + "#~#" + str(do['employee_name']) + "#~#" + str(do['bank_account_number']) + "#~#" + str(do['ifsc_code']) + "#~#" + str(do['gross_pay']) + "#~#" + str(do['esi_number']) + "#~#" + str(do['esi']) or 0
     frappe.response["result"] = result
     frappe.response["type"] = "txt"

@@ -8,50 +8,69 @@
  "field_order": [
   "start_date",
   "end_date",
-  "category",
   "column_break_3",
   "reports",
-  "download"
+  "department",
+  "principal_employer",
+  "download",
+  "salary_slips"
  ],
  "fields": [
   {
    "fieldname": "start_date",
    "fieldtype": "Date",
-   "label": "Start Date "
+   "in_list_view": 1,
+   "label": "Start Date ",
+   "reqd": 1
   },
   {
    "fieldname": "end_date",
    "fieldtype": "Date",
-   "label": "End Date"
-  },
-  {
-   "fieldname": "category",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "label": "Category",
-   "options": "Category"
+   "in_list_view": 1,
+   "label": "End Date",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_3",
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "eval:doc.end_date",
    "fieldname": "reports",
    "fieldtype": "Select",
    "label": "Reports",
-   "options": "\nPF Report Text File\nESI Report Text File\nBank Remittance Report"
+   "options": "\nPF Report Text File\nESI Report Text File\nBank Remittance Report\nBulk Salary Slip"
   },
   {
    "fieldname": "download",
    "fieldtype": "Button",
    "label": "Download"
+  },
+  {
+   "fieldname": "salary_slips",
+   "fieldtype": "Attach",
+   "label": "Salary Slips"
+  },
+  {
+   "depends_on": "eval:doc.reports == 'Bulk Salary Slip'",
+   "fieldname": "principal_employer",
+   "fieldtype": "Link",
+   "label": "Principal Employer",
+   "options": "Principal Employer"
+  },
+  {
+   "depends_on": "eval:doc.reports == 'Bulk Salary Slip'",
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-05-24 15:13:01.771579",
+ "modified": "2023-08-10 12:24:24.383519",
  "modified_by": "Administrator",
  "module": "mvl",
  "name": "Reports Dashboard",
@@ -69,5 +88,6 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }

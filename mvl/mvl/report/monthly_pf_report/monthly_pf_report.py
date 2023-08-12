@@ -39,7 +39,6 @@ def get_columns(filters):
 
 def get_data(filters):
 	data = []
-	
 	sp = frappe.get_all("Employee",{"status":"Active"},["*"])
 	for emp in sp:
 		sal = frappe.db.get_value("Salary Slip", {"employee": emp.name,"start_date":filters.from_date,"end_date":filters.to_date}, ["gross_pay"]) or " "
@@ -56,6 +55,4 @@ def get_data(filters):
 		if esi > 0:
 			row = [emp.name,emp.employee_name," ",sal, esi ,ded_esi,sal_present,sal_absent,tot]
 			data.append(row)
-
-
 	return data

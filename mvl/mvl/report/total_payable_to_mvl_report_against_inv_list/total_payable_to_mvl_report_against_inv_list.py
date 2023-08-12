@@ -24,10 +24,10 @@ def get_columns(filters):
 
 def get_data(filters):
 	data = []
-	invoice = frappe.db.sql("""select inv_name from `tabInvoice` """, as_dict=True)
+	invoice = frappe.db.sql("""select inv_name from `tabInvoice Name` """, as_dict=True)
 	for iv in invoice:
-		salary_slip = frappe.db.sql("""select sum(total_payable_to_mvl) as amount  from `tabSalary Slip` where invoice='%s' and start_date ='%s' and end_date ='%s' """%(iv.inv_name,filters.from_date,filters.end_date),as_dict=1)[0] or 0.0
-		att_ot_reg = frappe.db.sql("""select sum(transport_allowance) as amount  from `tabAttendance and OT Register` where inv_name_for_travel_allowance='%s' and start_date ='%s' and end_date ='%s' and docstatus = 1 """%(iv.inv_name,filters.from_date,filters.end_date),as_dict=1)[0] or 0.0
+		salary_slip = frappe.db.sql("""select sum(total_payable_to_mvl) as amount  from `tabSalary Slip` where invoice_name='%s' and start_date ='%s' and end_date ='%s' """%(iv.inv_name,filters.from_date,filters.end_date),as_dict=1)[0] or 0.0
+		att_ot_reg = frappe.db.sql("""select sum(transport_allowance) as amount  from `tabAttendance and OT Register` where invoice_name_for_travel_allowance='%s' and start_date ='%s' and end_date ='%s' and docstatus = 1 """%(iv.inv_name,filters.from_date,filters.end_date),as_dict=1)[0] or 0.0
 		trans = 0
 		if type(att_ot_reg['amount']) == float:
 			trans = round(att_ot_reg['amount'] * 1.1)
@@ -40,7 +40,7 @@ def get_data(filters):
 		data.append(row1)
 	for i in invoice:
 		if i.inv_name == "Renowned Engineers Private Limited,,Manpower Supply Service":
-			lun_all = frappe.db.sql("""select sum(lunch_allowance) as amount  from `tabAttendance and OT Register` where inv_name='%s' and start_date ='%s' and end_date ='%s' and  docstatus = 1 """%(i.inv_name,filters.from_date,filters.end_date),as_dict=1)[0] or 0.0
+			lun_all = frappe.db.sql("""select sum(lunch_allowance) as amount  from `tabAttendance and OT Register` where invoice_name='%s' and start_date ='%s' and end_date ='%s' and  docstatus = 1 """%(i.inv_name,filters.from_date,filters.end_date),as_dict=1)[0] or 0.0
 			lun = 0
 			if type(lun_all['amount']) == float:
 				lun = round(lun_all['amount'] * 1.1)

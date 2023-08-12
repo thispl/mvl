@@ -1,6 +1,5 @@
-# Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
-# License: GNU General Public License v3. See license.txt
-
+# Copyright (c) 2023, veeramayandi.p@groupteampro.com and contributors
+# For license information, please see license.txt
 
 import frappe
 from frappe import _
@@ -9,6 +8,7 @@ import erpnext
 from frappe.utils.data import add_days, today
 from frappe.utils import  formatdate
 from frappe.utils import format_datetime
+
 
 def execute(filters=None):
 	if not filters:
@@ -26,7 +26,6 @@ def execute(filters=None):
 	ss_ded_map = get_ss_ded_map(salary_slips, currency, company_currency)
 	doj_map = get_employee_doj_map()
 	
-
 	data = []
 	for ss in salary_slips:
 		row = [
@@ -99,8 +98,8 @@ def execute(filters=None):
 			int(frappe.get_value('Salary Detail',{'salary_component':"Salary Advance Detection",'parent':ss.name},["amount"]) or 0),
 			ss.total_deduction or 0,
 			ss.rounded_total,
-			# int(((frappe.get_value('Salary Detail',{'salary_component':"Earned Provident Fund",'parent':ss.name},["amount"] or 0)/13)*100)),
-			# int(((frappe.get_value('Salary Detail',{'abbr':"ESI",'parent':ss.name},["amount"] or 0)/3.25)*100)),
+			# ((int(frappe.get_value('Salary Detail',{'salary_component':"Earned Provident Fund",'parent':ss.name},["amount"]))/13)*100),
+			# ((int(frappe.get_value('Salary Detail',{'abbr':"ESI",'parent':ss.name},["amount"]))/3.25)*100),
 			"",
 			"",
 			ss.gross_pay
@@ -189,7 +188,7 @@ def get_columns(salary_slips):
 def get_salary_slips(filters, company_currency):
 	filters.update({"from_date": filters.get("from_date"), 
 	"to_date": filters.get("to_date"),
-	"principal_employer":filters.get("principal_employer")
+	"invoice_name":filters.get("invoice_name")
 	})
 	conditions, filters = get_conditions(filters, company_currency)
 	salary_slips = frappe.db.sql(
@@ -211,8 +210,8 @@ def get_conditions(filters, company_currency):
 		conditions += " and end_date <= %(to_date)s"
 	if filters.get("company"):
 		conditions += " and company = %(company)s"
-	if filters.get("principal_employer"):
-		conditions += " and principal_employer = %(principal_employer)s"
+	if filters.get("invoice_name"):
+		conditions += " and invoice_name = %(invoice_name)s"
 	if filters.get("currency") and filters.get("currency") != company_currency:
 		conditions += " and currency = %(currency)s"
 	return conditions, filters
@@ -260,3 +259,4 @@ def get_ss_ded_map(salary_slips, currency, company_currency):
 		else:
 			ss_ded_map[d.parent][d.salary_component] += flt(d.amount)
 	return ss_ded_map
+

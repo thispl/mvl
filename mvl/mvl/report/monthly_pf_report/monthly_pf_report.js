@@ -20,6 +20,14 @@ frappe.query_reports["Monthly PF Report"] = {
 			"reqd": 1,
 			"width": "100px"
 		},
+		{
+			"fieldname": "principal_employer",
+			"fieldtype": "Link",
+			"options": "Principal Employer",
+			"label": __("Principal Employer"),
+			"width": "50px",
+			// "reqd": 1,
+		},
 
 	]
 };
