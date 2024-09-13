@@ -98,13 +98,36 @@ app_include_css = "/assets/mvl/css/mvl.css"
 doc_events = {
 	"Salary Slip":{
 		"after_insert":"mvl.custom.get_total_payable_to_mvl",
+        "on_submit":"mvl.mvl.doctype.monthly_invoice_processing.monthly_invoice_processing.process_invoice_arrear",
+        "on_cancel":"mvl.mvl.doctype.monthly_invoice_processing.monthly_invoice_processing.revert_the_slip",
+		"validate":["mvl.custom.get_total_payable_to_mvl","mvl.custom.salary_slip_validate"]
 	},
+	"Attendance and OT Register":{
+		"on_submit":["mvl.custom.update_ncp","mvl.custom.update_casual_leave"],
+		"before_save": "mvl.custom.validate_dat",
+		"on_cancel" : ["mvl.custom.cancel_update_casual_leave"]
+	},
+    "Payroll Entry":{
+		"before_save": "mvl.custom.validate_arrear_or_not",
+	},
+	"Employee":{
+		"after_insert": "mvl.custom.get_contract_end_date",
+		"validate": "mvl.custom.inactive_employee",
+	},
+	
+	# "Arrear Salary Updation":{
+	# 	"after_insert":"mvl.custom.get_tott_ncp",
+	# },
+	# "Salary Detail":{
+	# 	"after_insert":"mvl.custom.get_sub_total",
+	# },
+
 }
 
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
 #	"all": [
 #		"mvl.tasks.all"
 #	],
@@ -117,10 +140,18 @@ doc_events = {
 #	"weekly": [
 #		"mvl.tasks.weekly"
 #	]
-#	"monthly": [
-#		"mvl.tasks.monthly"
-#	]
-# }
+	# "daily": [
+	# 	"mvl.mvl.doctype.employee_casual_leave.employee_casual_leave.update_total_leaves_allocated"
+	# ]
+	"cron":{
+		"30 00 * * *" :[
+			'mvl.custom.update_total_leaves_allocated'
+		],
+		"01 00 * * *" :[
+			'hrms.payroll.doctype.salary_slip.salary_slip.email_salary_slip'
+		],
+	}
+}
 
 # Testing
 # -------
@@ -133,6 +164,12 @@ doc_events = {
 # override_whitelisted_methods = {
 #	"frappe.desk.doctype.event.event.get_events": "mvl.event.get_events"
 # }
+jinja = {
+	"methods": [
+		"mvl.custom.get_data_for_annexture"
+	]
+}
+
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,

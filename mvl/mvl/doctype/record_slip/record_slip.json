@@ -1,0 +1,508 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "RS.####",
+ "creation": "2024-03-06 14:30:00.498916",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "employee_name",
+  "fathers__spouses_name",
+  "relationship",
+  "date_of_birth",
+  "gender",
+  "column_break_poitb",
+  "principal_employer",
+  "unit",
+  "designation",
+  "department",
+  "date_of_joining",
+  "column_break_jlomk",
+  "uan",
+  "esi_number",
+  "bank_account_number",
+  "name_of_the_bank",
+  "ifsc_code",
+  "section_break_1hwc2",
+  "start_date",
+  "column_break_modvj",
+  "end_date",
+  "section_break_swrak",
+  "basic",
+  "pay_day_wage",
+  "house_rent_allowance",
+  "dearness_allowance",
+  "washing_allowance",
+  "column_break_sreub",
+  "conveyance_allowance",
+  "medical_allowance",
+  "special_allowance",
+  "stipend",
+  "others",
+  "fixed_total",
+  "section_break_tatsa",
+  "days_atteded",
+  "earned_basic",
+  "earned_dearness_allowance",
+  "earned_house_rent_allowance",
+  "earned_washing_allowance",
+  "earned_conveyance_allowance",
+  "earned_medical_allowance",
+  "earned_special_allowance",
+  "earned_other_allowance",
+  "ot_hours",
+  "ot_amount",
+  "column_break_up7ye",
+  "ncp",
+  "pf_13",
+  "esi_325",
+  "attendance_bonus",
+  "insurance",
+  "gratuity",
+  "uniform",
+  "clel",
+  "sub_total",
+  "service_charges",
+  "total_payable_to_mvl",
+  "e_gross",
+  "section_break_aimoh",
+  "pf_12_",
+  "esi_075",
+  "lw_fund",
+  "professional_tax",
+  "salary_advance_detection",
+  "ptax",
+  "tds_deductions_1",
+  "total_deductions",
+  "column_break_vj55h",
+  "net_pay",
+  "epf_wages",
+  "esi_wages",
+  "gross_wages",
+  "p_tax_refund",
+  "travel_allowance",
+  "lunch_allowance"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Employee Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "fathers__spouses_name",
+   "fieldtype": "Data",
+   "label": "Father's / Spouse's Name"
+  },
+  {
+   "fieldname": "relationship",
+   "fieldtype": "Data",
+   "label": "Relationship"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_modvj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_swrak",
+   "fieldtype": "Section Break",
+   "label": "Fixed Salary Details"
+  },
+  {
+   "fieldname": "basic",
+   "fieldtype": "Currency",
+   "label": "Basic / Stipend"
+  },
+  {
+   "fieldname": "house_rent_allowance",
+   "fieldtype": "Currency",
+   "label": "House Rent Allowance"
+  },
+  {
+   "fieldname": "dearness_allowance",
+   "fieldtype": "Currency",
+   "label": "Dearness Allowance"
+  },
+  {
+   "fieldname": "washing_allowance",
+   "fieldtype": "Currency",
+   "label": "Washing Allowance"
+  },
+  {
+   "fieldname": "column_break_sreub",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "conveyance_allowance",
+   "fieldtype": "Currency",
+   "label": "Conveyance Allowance"
+  },
+  {
+   "fieldname": "medical_allowance",
+   "fieldtype": "Currency",
+   "label": "Medical Allowance"
+  },
+  {
+   "fieldname": "special_allowance",
+   "fieldtype": "Currency",
+   "label": "Special Allowance"
+  },
+  {
+   "fieldname": "stipend",
+   "fieldtype": "Currency",
+   "label": "Stipend"
+  },
+  {
+   "fieldname": "section_break_tatsa",
+   "fieldtype": "Section Break",
+   "label": "Payroll Details(Wages)"
+  },
+  {
+   "fieldname": "earned_basic",
+   "fieldtype": "Currency",
+   "label": "Earned Basic / Stipend"
+  },
+  {
+   "fieldname": "earned_dearness_allowance",
+   "fieldtype": "Currency",
+   "label": "Earned Dearness Allowance"
+  },
+  {
+   "fieldname": "earned_house_rent_allowance",
+   "fieldtype": "Currency",
+   "label": "Earned House Rent Allowance"
+  },
+  {
+   "fieldname": "earned_washing_allowance",
+   "fieldtype": "Currency",
+   "label": "Earned Washing Allowance"
+  },
+  {
+   "fieldname": "earned_conveyance_allowance",
+   "fieldtype": "Currency",
+   "label": "Earned Conveyance Allowance"
+  },
+  {
+   "fieldname": "earned_medical_allowance",
+   "fieldtype": "Currency",
+   "label": "Earned Medical Allowance"
+  },
+  {
+   "fieldname": "earned_special_allowance",
+   "fieldtype": "Currency",
+   "label": "Earned Special Allowance"
+  },
+  {
+   "fieldname": "earned_other_allowance",
+   "fieldtype": "Currency",
+   "label": "Earned Other Allowance"
+  },
+  {
+   "fieldname": "ot_hours",
+   "fieldtype": "Float",
+   "label": "OT Hours"
+  },
+  {
+   "fieldname": "ot_amount",
+   "fieldtype": "Currency",
+   "label": "OT Amount"
+  },
+  {
+   "fieldname": "e_gross",
+   "fieldtype": "Currency",
+   "label": "Earned Gross"
+  },
+  {
+   "fieldname": "days_atteded",
+   "fieldtype": "Float",
+   "label": "Days Atteded"
+  },
+  {
+   "fieldname": "column_break_up7ye",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ncp",
+   "fieldtype": "Float",
+   "label": "NCP"
+  },
+  {
+   "fieldname": "pf_13",
+   "fieldtype": "Currency",
+   "label": "PF 13%"
+  },
+  {
+   "fieldname": "attendance_bonus",
+   "fieldtype": "Currency",
+   "label": "Bonus / Ex Gratia"
+  },
+  {
+   "fieldname": "insurance",
+   "fieldtype": "Currency",
+   "label": "Insurance"
+  },
+  {
+   "fieldname": "gratuity",
+   "fieldtype": "Currency",
+   "label": "Gratuity"
+  },
+  {
+   "fieldname": "uniform",
+   "fieldtype": "Currency",
+   "label": "Uniform"
+  },
+  {
+   "fieldname": "clel",
+   "fieldtype": "Currency",
+   "label": "CL/EL"
+  },
+  {
+   "fieldname": "sub_total",
+   "fieldtype": "Currency",
+   "label": "Sub Total"
+  },
+  {
+   "fieldname": "service_charges",
+   "fieldtype": "Currency",
+   "label": "Service Charges"
+  },
+  {
+   "fieldname": "total_payable_to_mvl",
+   "fieldtype": "Currency",
+   "label": "Total payable to MVL"
+  },
+  {
+   "fieldname": "section_break_aimoh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "pf_12_",
+   "fieldtype": "Currency",
+   "label": "PF @ 12%"
+  },
+  {
+   "fieldname": "esi_075",
+   "fieldtype": "Currency",
+   "label": "ESI @ 0.75%"
+  },
+  {
+   "fieldname": "lw_fund",
+   "fieldtype": "Currency",
+   "label": "L/W Fund"
+  },
+  {
+   "fieldname": "professional_tax",
+   "fieldtype": "Currency",
+   "label": "Professional Tax"
+  },
+  {
+   "fieldname": "total_deductions",
+   "fieldtype": "Currency",
+   "label": "Total Deductions"
+  },
+  {
+   "fieldname": "column_break_vj55h",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "net_pay",
+   "fieldtype": "Currency",
+   "label": "Net Pay to Workers"
+  },
+  {
+   "fieldname": "epf_wages",
+   "fieldtype": "Currency",
+   "label": "EPF Wages"
+  },
+  {
+   "fieldname": "esi_wages",
+   "fieldtype": "Currency",
+   "label": "ESI Wages"
+  },
+  {
+   "fieldname": "gross_wages",
+   "fieldtype": "Currency",
+   "label": "Gross Wages"
+  },
+  {
+   "fieldname": "travel_allowance",
+   "fieldtype": "Currency",
+   "label": "Travel Allowance"
+  },
+  {
+   "fieldname": "lunch_allowance",
+   "fieldtype": "Currency",
+   "label": "Lunch Allowance"
+  },
+  {
+   "fieldname": "salary_advance_detection",
+   "fieldtype": "Currency",
+   "label": "Salary Advance"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date Of Birth"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "label": "Designation"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Department"
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Unit",
+   "options": "Unit"
+  },
+  {
+   "fieldname": "date_of_joining",
+   "fieldtype": "Date",
+   "label": "Date Of Joining"
+  },
+  {
+   "fieldname": "uan",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "UAN",
+   "mandatory_depends_on": "eval:doc.unit !=  [\"ADOC\",\"TTN - Retainers\",\"CHN - Retainers\"]"
+  },
+  {
+   "fieldname": "esi_number",
+   "fieldtype": "Data",
+   "label": "ESI Number"
+  },
+  {
+   "fieldname": "bank_account_number",
+   "fieldtype": "Data",
+   "label": "Bank Account Number"
+  },
+  {
+   "fieldname": "name_of_the_bank",
+   "fieldtype": "Data",
+   "label": "Name of the Bank"
+  },
+  {
+   "fieldname": "ifsc_code",
+   "fieldtype": "Data",
+   "label": "IFSC Code"
+  },
+  {
+   "fieldname": "pay_day_wage",
+   "fieldtype": "Currency",
+   "label": "Per Day Wage"
+  },
+  {
+   "fieldname": "others",
+   "fieldtype": "Currency",
+   "label": "Others"
+  },
+  {
+   "fieldname": "fixed_total",
+   "fieldtype": "Currency",
+   "label": "Fixed Gross"
+  },
+  {
+   "fieldname": "esi_325",
+   "fieldtype": "Currency",
+   "label": "ESI 3.25%"
+  },
+  {
+   "fieldname": "ptax",
+   "fieldtype": "Currency",
+   "label": "P/Tax"
+  },
+  {
+   "fieldname": "tds_deductions_1",
+   "fieldtype": "Currency",
+   "label": "TDS Deductions 1%"
+  },
+  {
+   "fieldname": "p_tax_refund",
+   "fieldtype": "Currency",
+   "label": "P Tax Refund"
+  },
+  {
+   "fieldname": "principal_employer",
+   "fieldtype": "Link",
+   "label": "Principal Employer",
+   "options": "Principal Employer"
+  },
+  {
+   "fieldname": "section_break_1hwc2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_poitb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_jlomk",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-21 16:39:04.227031",
+ "modified_by": "Administrator",
+ "module": "mvl",
+ "name": "Record Slip",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "employee"
+}

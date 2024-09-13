@@ -3,27 +3,58 @@
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:unit",
- "creation": "2023-04-05 19:18:29.020300",
+ "creation": "2023-05-22 18:19:00.098290",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "unit"
+  "unit",
+  "retainer",
+  "man_days",
+  "applicable_for_pf",
+  "applicable_for_esi"
  ],
  "fields": [
+  {
+   "default": "0",
+   "fieldname": "retainer",
+   "fieldtype": "Check",
+   "label": "Retainer"
+  },
   {
    "fieldname": "unit",
    "fieldtype": "Data",
    "label": "Unit",
+   "no_copy": 1,
    "unique": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "applicable_for_pf",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Applicable for PF"
+  },
+  {
+   "default": "0",
+   "fieldname": "applicable_for_esi",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Applicable for ESI"
+  },
+  {
+   "fieldname": "man_days",
+   "fieldtype": "Int",
+   "label": "Man Days"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-24 15:13:03.036554",
+ "modified": "2023-12-01 15:53:26.320065",
  "modified_by": "Administrator",
  "module": "mvl",
  "name": "Unit",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -40,5 +71,6 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }

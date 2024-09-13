@@ -19,7 +19,20 @@ frappe.query_reports["Retirement Report"] = {
 			"fieldtype": "Date",
 			// "default": frappe.datetime.year_end(),
 			"reqd": 1,
-			"width": "100px"
+			"width": "100px",
+			on_change: function () {
+				var from_date = frappe.query_report.get_filter_value('from_date')
+				frappe.call({
+					method: "mvl.mvl.report.monthwise_salary_register.monthwise_salary_register.get_to_date",
+					args: {
+						from_date: from_date
+					},
+					callback(r) {
+						frappe.query_report.set_filter_value('to_date', r.message);
+						frappe.query_report.refresh();
+					}
+				})
+			}
 		},
 	]
 };

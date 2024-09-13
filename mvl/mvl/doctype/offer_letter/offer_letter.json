@@ -1,0 +1,219 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "OL.####",
+ "creation": "2023-09-11 16:25:31.791016",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "unit",
+  "section_break_2byc2",
+  "salutation",
+  "name1",
+  "door_no__street",
+  "area",
+  "district",
+  "pincode",
+  "company",
+  "location",
+  "column_break_yx3t2",
+  "invoice",
+  "posting_date",
+  "designation",
+  "effective_date",
+  "period",
+  "ctc",
+  "from_date",
+  "to_date",
+  "section_break_xc9so",
+  "pay_structure",
+  "section_break_vvfvn",
+  "sub_total_a",
+  "sub_total_b",
+  "grand_total",
+  "column_break_0sywi",
+  "sub_total_1",
+  "sub_total_2",
+  "grand_total_1"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "door_no__street",
+   "fieldtype": "Data",
+   "label": "Door No / Street"
+  },
+  {
+   "fieldname": "area",
+   "fieldtype": "Data",
+   "label": "Area"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Data",
+   "label": "District"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Link",
+   "label": "Designation",
+   "options": "Designation"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "ctc",
+   "fieldtype": "Currency",
+   "label": "CTC"
+  },
+  {
+   "fieldname": "column_break_yx3t2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "effective_date",
+   "fieldtype": "Date",
+   "label": "Effective Date"
+  },
+  {
+   "fieldname": "salutation",
+   "fieldtype": "Link",
+   "label": "Salutation",
+   "options": "Salutation"
+  },
+  {
+   "fieldname": "pincode",
+   "fieldtype": "Data",
+   "label": "Pincode"
+  },
+  {
+   "fieldname": "invoice",
+   "fieldtype": "Link",
+   "label": "Invoice",
+   "options": "Invoice Name"
+  },
+  {
+   "fieldname": "period",
+   "fieldtype": "Data",
+   "label": "Period"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Location"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date"
+  },
+  {
+   "fieldname": "pay_structure",
+   "fieldtype": "Table",
+   "label": "Pay Structure",
+   "options": "Offer Letter Child"
+  },
+  {
+   "fieldname": "section_break_xc9so",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "sub_total_a",
+   "fieldtype": "Currency",
+   "label": "Sub Total (A) Per Month"
+  },
+  {
+   "fieldname": "sub_total_b",
+   "fieldtype": "Currency",
+   "label": "Sub Total (B) Per Month"
+  },
+  {
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "label": "Grand Total (Per Month)"
+  },
+  {
+   "fieldname": "section_break_vvfvn",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_0sywi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sub_total_1",
+   "fieldtype": "Currency",
+   "label": "Sub Total (A) Per Year"
+  },
+  {
+   "fieldname": "sub_total_2",
+   "fieldtype": "Currency",
+   "label": "Sub Total (B) Per Year "
+  },
+  {
+   "fieldname": "grand_total_1",
+   "fieldtype": "Currency",
+   "label": "Grand Total (Per Year)"
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Unit",
+   "options": "Unit",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_2byc2",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-10-12 09:43:19.927017",
+ "modified_by": "Administrator",
+ "module": "mvl",
+ "name": "Offer Letter",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

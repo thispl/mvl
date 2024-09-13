@@ -8,25 +8,38 @@ frappe.query_reports["Monthwise Salary Register"] = {
 			"fieldname":"from_date",
 			"label": __("From"),
 			"fieldtype": "Date",
-			"default": "",
 			"reqd": 1,
-			"width": "100px"
+			"width": "100px",
+			on_change: function () {
+				var from_date = frappe.query_report.get_filter_value('from_date')
+				frappe.call({
+					method: "mvl.mvl.report.monthwise_salary_register.monthwise_salary_register.get_to_date",
+					args: {
+						from_date: from_date
+					},
+					callback(r) {
+						frappe.query_report.set_filter_value('to_date', r.message);
+						frappe.query_report.refresh();
+					}
+				})
+			}
 		},
 		{
 			"fieldname":"to_date",
 			"label": __("To"),
 			"fieldtype": "Date",
-			"default": "",
+			// "default": frappe.datetime.month_end('from_time'),
 			"reqd": 1,
-			"width": "100px"
+			"width": "100px",
+			"read_only":1
 		},
 		{
-			"fieldname": "principal_employer",
+			"fieldname": "unit",
 			"fieldtype": "Link",
-			"options": "Principal Employer",
-			"label": __("Principal Employer"),
+			"options": "Unit",
+			"label": __("Unit"),
 			"width": "50px",
-			"reqd": 1,
+			// "reqd": 1,
 		},
 		{
 			"fieldname": "currency",
@@ -56,14 +69,4 @@ frappe.query_reports["Monthwise Salary Register"] = {
 			"width": "100px"
 		}
 	],
-	onload: function (report) {
-		var to_date = frappe.query_report.get_filter('to_date');
-		to_date.refresh();
-		var c = frappe.datetime.add_months(frappe.datetime.month_end())
-		to_date.set_input(frappe.datetime.add_days(c))	
-		var from_date = frappe.query_report.get_filter('from_date');
-		from_date.refresh();
-		var d = frappe.datetime.add_months(frappe.datetime.month_start(),)
-		from_date.set_input(frappe.datetime.add_days(d))	
-	}	
 };

@@ -2,7 +2,7 @@
 # See license.txt
 
 # import frappe
-import unittest
+import principal_employertest
 
-class TestPrincipalEmployer(unittest.TestCase):
+class TestPrincipalEmployer(principal_employertest.TestCase):
 	pass

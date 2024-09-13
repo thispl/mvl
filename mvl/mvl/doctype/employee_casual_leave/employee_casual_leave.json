@@ -1,0 +1,114 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format:ECL-{employee}",
+ "creation": "2023-09-12 10:50:41.003976",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "employee_name",
+  "company",
+  "column_break_nwis0",
+  "date",
+  "total_leaves_allocated",
+  "leave_details_section",
+  "last_add_on",
+  "column_break_fvg0n",
+  "next_add_on"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name"
+  },
+  {
+   "fetch_from": "employee.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fetch_from": "employee.date_of_joining",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Joining"
+  },
+  {
+   "fieldname": "total_leaves_allocated",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Leaves Allocated",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_nwis0",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "leave_details_section",
+   "fieldtype": "Section Break",
+   "label": "Leave Details"
+  },
+  {
+   "fieldname": "last_add_on",
+   "fieldtype": "Date",
+   "label": "Last Add on",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_fvg0n",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "next_add_on",
+   "fieldtype": "Date",
+   "label": "Next Add on",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-10-09 10:57:21.113404",
+ "modified_by": "Administrator",
+ "module": "mvl",
+ "name": "Employee Casual Leave",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -22,6 +22,7 @@ def execute(filters=None):
 def get_columns(filters):
 	columns = []
 	columns += [
+		_("Index") + ":Data/:50",
 		_("Employee") + ":Data/:200",
 		_("Employee Name") + ":Data/:200",
 		_("UAN") + ":Link/ESI Location:200",
@@ -44,15 +45,11 @@ def get_data(filters):
 		sal = frappe.db.get_value("Salary Slip", {"employee": emp.name,"start_date":filters.from_date,"end_date":filters.to_date}, ["gross_pay"]) or " "
 		sal_present = frappe.db.get_value("Salary Slip", {"employee": emp.name,"start_date":filters.from_date,"end_date":filters.to_date}, ["payment_days"]) or " "
 		sal_absent = frappe.db.get_value("Salary Slip", {"employee": emp.name,"start_date":filters.from_date,"end_date":filters.to_date}, ["absent_days"]) or " "
-		# frappe.errprint(sal)
 		sal_name = frappe.db.get_value("Salary Slip", {"employee": emp.name,"start_date":filters.from_date,"end_date":filters.to_date}, ["name"]) or " "
-		# frappe.errprint(sal_name)
 		esi = int(frappe.get_value('Salary Detail',{'salary_component':"Earned Provident Fund",'parent':sal_name},["amount"]) or 0)
 		ded_esi = int(frappe.get_value('Salary Detail',{'salary_component':"Provident Fund",'parent':sal_name},["amount"]) or 0)
 		tot = esi + ded_esi
-		frappe.errprint(esi)
-		frappe.errprint(ded_esi)
 		if esi > 0:
-			row = [emp.name,emp.employee_name," ",sal, esi ,ded_esi,sal_present,sal_absent,tot]
+			row = [1,emp.name,emp.employee_name,emp.uan_number,sal, esi ,ded_esi,sal_present,sal_absent,tot]
 			data.append(row)
 	return data

@@ -1,0 +1,127 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-08-17 14:45:02.997929",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "basic",
+  "house_rent_allowance",
+  "dearness_allowance",
+  "washing_allowance",
+  "insurance",
+  "column_break_udgnk",
+  "conveyance_allowance",
+  "medical_allowance",
+  "special_allowance",
+  "uniform",
+  "professional_tax",
+  "pt_refund"
+ ],
+ "fields": [
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "basic",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Basic",
+   "search_index": 1
+  },
+  {
+   "fieldname": "house_rent_allowance",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "House Rent Allowance",
+   "search_index": 1
+  },
+  {
+   "fieldname": "dearness_allowance",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Dearness Allowance",
+   "search_index": 1
+  },
+  {
+   "fieldname": "washing_allowance",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Washing Allowance",
+   "search_index": 1
+  },
+  {
+   "fieldname": "insurance",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Insurance (Per Month*12)",
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_udgnk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "conveyance_allowance",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Conveyance Allowance",
+   "search_index": 1
+  },
+  {
+   "fieldname": "medical_allowance",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Medical Allowance",
+   "search_index": 1
+  },
+  {
+   "fieldname": "special_allowance",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Special Allowance",
+   "search_index": 1
+  },
+  {
+   "fieldname": "uniform",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Uniform (Per Month*12)",
+   "search_index": 1
+  },
+  {
+   "fieldname": "professional_tax",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Professional Tax",
+   "search_index": 1
+  },
+  {
+   "fieldname": "pt_refund",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "PT Refund",
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-08-17 15:00:28.245187",
+ "modified_by": "Administrator",
+ "module": "mvl",
+ "name": "Salary Revision",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

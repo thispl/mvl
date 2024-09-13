@@ -8,17 +8,31 @@ frappe.query_reports["Monthwise Salary Register Against Invoice"] = {
 			"fieldname":"from_date",
 			"label": __("From"),
 			"fieldtype": "Date",
-			"default": "",
+			// "default": "",
 			"reqd": 1,
-			"width": "100px"
+			"width": "100px",
+			on_change: function () {
+				var from_date = frappe.query_report.get_filter_value('from_date')
+				frappe.call({
+					method: "mvl.mvl.report.monthwise_salary_register.monthwise_salary_register.get_to_date",
+					args: {
+						from_date: from_date
+					},
+					callback(r) {
+						frappe.query_report.set_filter_value('to_date', r.message);
+						frappe.query_report.refresh();
+					}
+				})
+			}
 		},
 		{
 			"fieldname":"to_date",
 			"label": __("To"),
 			"fieldtype": "Date",
-			"default": "",
+			// "default": "",
 			"reqd": 1,
-			"width": "100px"
+			"width": "100px",
+			"read_only":1
 		},
 		{
 			"fieldname": "invoice_name",
@@ -26,7 +40,29 @@ frappe.query_reports["Monthwise Salary Register Against Invoice"] = {
 			"options": "Invoice Name",
 			"label": __("Invoice Name"),
 			"width": "50px",
-			"reqd": 1,
+			get_query: () => {
+				var invoice_name = frappe.query_report.get_filter_value('invoice_name');
+				return {
+					filters: {
+						'active': 1
+					}
+				};
+			}
+		},
+		{
+			"fieldname": "invoice_name_for_travel_allowance",
+			"fieldtype": "Link",
+			"options": "Invoice Name",
+			"label": __("Invoice Name  for Travel"),
+			"width": "50px",
+			get_query: () => {
+				var invoice_name_for_travel_allowance = frappe.query_report.get_filter_value('invoice_name_for_travel_allowance');
+				return {
+					filters: {
+						'active': 1
+					}
+				};
+			}
 		},
 		{
 			"fieldname": "currency",
@@ -55,14 +91,4 @@ frappe.query_reports["Monthwise Salary Register Against Invoice"] = {
 			"width": "100px"
 		}
 	],
-	// onload: function (report) {
-	// 	var to_date = frappe.query_report.get_filter('to_date');
-	// 	to_date.refresh();
-	// 	var c = frappe.datetime.add_months(frappe.datetime.month_end())
-	// 	to_date.set_input(frappe.datetime.add_days(c))	
-	// 	var from_date = frappe.query_report.get_filter('from_date');
-	// 	from_date.refresh();
-	// 	var d = frappe.datetime.add_months(frappe.datetime.month_start(),)
-	// 	from_date.set_input(frappe.datetime.add_days(d))	
-	// }
 };

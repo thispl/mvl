@@ -8,10 +8,11 @@
  "field_order": [
   "start_date",
   "end_date",
+  "unit",
+  "arrear_slip",
   "column_break_3",
   "reports",
   "department",
-  "principal_employer",
   "download",
   "salary_slips"
  ],
@@ -39,7 +40,7 @@
    "fieldname": "reports",
    "fieldtype": "Select",
    "label": "Reports",
-   "options": "\nPF Report Text File\nESI Report Text File\nBank Remittance Report\nBulk Salary Slip"
+   "options": "\nPF Report Text File\nBank Remittance Report\nBank Remittance Report with Unit\nBulk Salary Slip\nPrincipal Employer Wise Salary Statement\nPrincipal Employer Wise Salary Statement - Retainer\nMonthly Invoice Report\nMonthly TDS Report\nESI Report Excel File"
   },
   {
    "fieldname": "download",
@@ -47,16 +48,10 @@
    "label": "Download"
   },
   {
+   "depends_on": "eval:doc.reports == 'Bulk Salary Slip'",
    "fieldname": "salary_slips",
    "fieldtype": "Attach",
    "label": "Salary Slips"
-  },
-  {
-   "depends_on": "eval:doc.reports == 'Bulk Salary Slip'",
-   "fieldname": "principal_employer",
-   "fieldtype": "Link",
-   "label": "Principal Employer",
-   "options": "Principal Employer"
   },
   {
    "depends_on": "eval:doc.reports == 'Bulk Salary Slip'",
@@ -64,13 +59,27 @@
    "fieldtype": "Link",
    "label": "Department",
    "options": "Department"
+  },
+  {
+   "depends_on": "eval:doc.reports == \"Bank Remittance Report with Unit\"  || doc.reports == \"Bulk Salary Slip\"",
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Unit",
+   "mandatory_depends_on": "eval:doc.reports == \"Bank Remittance Report with Unit\"  || doc.reports == \"Bulk Salary Slip\" || doc.reports == \"Bulk Salary Slip\"",
+   "options": "Unit"
+  },
+  {
+   "default": "0",
+   "fieldname": "arrear_slip",
+   "fieldtype": "Check",
+   "label": "Arrear Slip"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-08-10 12:24:24.383519",
+ "modified": "2023-12-28 21:15:20.903675",
  "modified_by": "Administrator",
  "module": "mvl",
  "name": "Reports Dashboard",

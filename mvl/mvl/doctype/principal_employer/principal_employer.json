@@ -3,27 +3,37 @@
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:principal_employer",
- "creation": "2023-05-22 18:19:00.098290",
+ "creation": "2023-04-05 19:18:29.020300",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "principal_employer"
+  "principal_employer",
+  "retainer"
  ],
  "fields": [
   {
    "fieldname": "principal_employer",
    "fieldtype": "Data",
    "label": "Principal Employer",
+   "set_only_once": 1,
    "unique": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "retainer",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Retainer"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-24 15:13:02.468066",
+ "modified": "2023-09-21 14:09:45.041526",
  "modified_by": "Administrator",
  "module": "mvl",
  "name": "Principal Employer",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -40,5 +50,6 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }

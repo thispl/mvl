@@ -1,29 +1,42 @@
 {
  "actions": [],
- "allow_rename": 1,
- "autoname": "prompt",
+ "allow_auto_repeat": 1,
+ "allow_import": 1,
+ "autoname": "naming_series:",
  "creation": "2023-08-02 06:45:39.378746",
  "default_view": "List",
  "doctype": "DocType",
+ "document_type": "Document",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "naming_series",
+  "arrear_slip",
   "from_date",
   "to_date",
   "invoice_name",
+  "other_state",
   "hsnsac_code",
   "column_break_dnbbt",
+  "download",
   "invoicing_date",
   "company",
   "total_amount",
   "tax_details",
   "cgst_payable",
   "sgst_payable",
+  "igst_payable",
   "column_break_zdeph",
   "cgst_payable_amount",
   "sgst_payable_amount",
+  "igst_payable_amount",
+  "total",
+  "add_on_status",
+  "add_on",
+  "roundup",
   "print_details_section",
   "irn_number",
+  "column_break_5xmke",
   "acknowledge_number"
  ],
  "fields": [
@@ -56,6 +69,7 @@
    "fieldname": "invoice_name",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Invoice Name",
    "options": "Invoice Name",
    "reqd": 1
@@ -82,12 +96,14 @@
    "label": "Tax Details"
   },
   {
+   "depends_on": "eval:doc.other_state==0",
    "description": "In Percentage",
    "fieldname": "cgst_payable",
    "fieldtype": "Float",
    "label": "CGST Payable"
   },
   {
+   "depends_on": "eval:doc.other_state==0",
    "description": "In Percentage",
    "fieldname": "sgst_payable",
    "fieldtype": "Float",
@@ -98,12 +114,14 @@
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "eval:doc.other_state==0",
    "fieldname": "cgst_payable_amount",
    "fieldtype": "Currency",
    "label": "CGST Payable Amount",
    "read_only": 1
   },
   {
+   "depends_on": "eval:doc.other_state==0",
    "fieldname": "sgst_payable_amount",
    "fieldtype": "Currency",
    "label": "SGST Payable Amount",
@@ -129,16 +147,83 @@
    "fieldname": "hsnsac_code",
    "fieldtype": "Data",
    "label": "HSN/SAC Code"
+  },
+  {
+   "depends_on": "eval:doc.other_state!=0",
+   "fieldname": "igst_payable_amount",
+   "fieldtype": "Currency",
+   "label": "IGST Payable Amount",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "invoice_name.other_state",
+   "fieldname": "other_state",
+   "fieldtype": "Check",
+   "label": "Other State",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.other_state!=0",
+   "fieldname": "igst_payable",
+   "fieldtype": "Float",
+   "label": "IGST Payable"
+  },
+  {
+   "fieldname": "column_break_5xmke",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series"
+  },
+  {
+   "fieldname": "download",
+   "fieldtype": "Button",
+   "hidden": 1,
+   "label": "Download"
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Currency",
+   "label": "Total",
+   "read_only": 1
+  },
+  {
+   "fieldname": "add_on",
+   "fieldtype": "Currency",
+   "label": "Add on Value",
+   "read_only": 1
+  },
+  {
+   "fieldname": "add_on_status",
+   "fieldtype": "Select",
+   "label": "Add on Status",
+   "options": "\n(Increase +)\n(Decrease -)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "roundup",
+   "fieldtype": "Currency",
+   "label": "Roundup ",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "arrear_slip",
+   "fieldtype": "Check",
+   "label": "Arrear Slip"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-08-07 14:25:04.903742",
+ "modified": "2024-01-02 07:25:22.670024",
  "modified_by": "Administrator",
  "module": "mvl",
  "name": "Monthly Invoice",
- "naming_rule": "Set by user",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -154,6 +239,7 @@
    "write": 1
   }
  ],
+ "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

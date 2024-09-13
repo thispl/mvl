@@ -22,7 +22,7 @@ def execute(filters=None):
             d = ss.ifsc_code
             e = ss.gross_pay
             h = frappe.get_value('Salary Detail',{'salary_component':"Earned Provident Fund",'parent':ss.name},["amount"] or 0)
-            row = [z or "-",a or "-",c or "-",d or "-",e or 0,h or 0]
+            row = [1,z or "-",a or "-",c or "-",d or "-",e or 0,h or 0]
             data.append(row)
 
     return columns, data
@@ -30,6 +30,7 @@ def execute(filters=None):
 
 def get_columns():
     columns = [
+        _("Index") + ":Data/:50",
         _("Employee") + ":Data:150",
         _("Employee Name") + ":Data:150",
 		_("Bank Account Number") + ":Data:150",

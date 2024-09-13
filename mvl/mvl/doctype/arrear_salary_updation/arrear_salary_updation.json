@@ -1,0 +1,254 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "ASY-.####",
+ "creation": "2023-08-19 11:47:01.828572",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee_details_section",
+  "employee",
+  "employee_name",
+  "department",
+  "designation",
+  "column_break_c8ork",
+  "unit",
+  "invoice_name",
+  "principal_employer",
+  "column_break_hvr2x",
+  "revised_basic",
+  "revised_house_rent_allowance",
+  "revised_dearness_allowance",
+  "revised_washing_allowance",
+  "column_break_sjmpq",
+  "revised_conveyance_allowance",
+  "revised_medical_allowance",
+  "revised_special_allowance",
+  "revised_period_details",
+  "from_date",
+  "to_date",
+  "payment_days",
+  "column_break_spkxv",
+  "total_working_days",
+  "ncp",
+  "revised_salary_details_section",
+  "revised_earnings",
+  "column_break_sivy1",
+  "revised_deducutions",
+  "column_break_it0ao",
+  "revised_net_pay",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.department",
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.designation",
+   "fieldname": "designation",
+   "fieldtype": "Link",
+   "label": "Designation",
+   "options": "Designation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_c8ork",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "employee.invoice_name",
+   "fieldname": "invoice_name",
+   "fieldtype": "Link",
+   "label": "Invoice Name",
+   "options": "Invoice Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.unit",
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Unit",
+   "options": "Unit",
+   "read_only": 1
+  },
+  {
+   "fieldname": "employee_details_section",
+   "fieldtype": "Section Break",
+   "label": "Employee Details"
+  },
+  {
+   "depends_on": "employee",
+   "fieldname": "column_break_hvr2x",
+   "fieldtype": "Section Break",
+   "label": "Revised Salary Components"
+  },
+  {
+   "fieldname": "revised_basic",
+   "fieldtype": "Currency",
+   "label": "Revised Basic"
+  },
+  {
+   "fieldname": "revised_house_rent_allowance",
+   "fieldtype": "Currency",
+   "label": "Revised House Rent Allowance"
+  },
+  {
+   "fieldname": "revised_dearness_allowance",
+   "fieldtype": "Currency",
+   "label": "Revised Dearness Allowance"
+  },
+  {
+   "fieldname": "revised_washing_allowance",
+   "fieldtype": "Currency",
+   "label": "Revised Washing Allowance"
+  },
+  {
+   "fieldname": "column_break_sjmpq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "revised_conveyance_allowance",
+   "fieldtype": "Currency",
+   "label": "Revised Conveyance Allowance"
+  },
+  {
+   "fieldname": "revised_medical_allowance",
+   "fieldtype": "Currency",
+   "label": "Revised Medical Allowance"
+  },
+  {
+   "fieldname": "revised_special_allowance",
+   "fieldtype": "Currency",
+   "label": "Revised Special Allowance"
+  },
+  {
+   "depends_on": "employee",
+   "fieldname": "revised_salary_details_section",
+   "fieldtype": "Section Break",
+   "label": "Revised salary Details"
+  },
+  {
+   "fieldname": "revised_earnings",
+   "fieldtype": "Currency",
+   "label": "Revised Earnings"
+  },
+  {
+   "fieldname": "revised_deducutions",
+   "fieldtype": "Currency",
+   "label": "Revised Deducutions"
+  },
+  {
+   "fieldname": "revised_net_pay",
+   "fieldtype": "Currency",
+   "label": "Revised Net Pay"
+  },
+  {
+   "fieldname": "column_break_sivy1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_it0ao",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Arrear Salary Updation",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "depends_on": "employee",
+   "fieldname": "revised_period_details",
+   "fieldtype": "Section Break",
+   "label": "Revised Period Details"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "payment_days",
+   "fieldtype": "Float",
+   "label": "Payable in this Period"
+  },
+  {
+   "fieldname": "column_break_spkxv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ncp",
+   "fieldtype": "Float",
+   "label": "NCP"
+  },
+  {
+   "fieldname": "total_working_days",
+   "fieldtype": "Int",
+   "label": "Total Working Days"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date"
+  },
+  {
+   "fetch_from": "employee.principal_employer",
+   "fieldname": "principal_employer",
+   "fieldtype": "Link",
+   "label": "Principal Employer",
+   "options": "Principal Employer",
+   "read_only": 1
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-09-01 14:57:52.223708",
+ "modified_by": "Administrator",
+ "module": "mvl",
+ "name": "Arrear Salary Updation",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

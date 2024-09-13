@@ -15,7 +15,7 @@
 }
 
 body{
-    background-color:#e8cdcd;
+    background-color:#5B8FF5;
 }
 .awesomplete .input-with-feedback {
     border: 1px solid grey;
@@ -76,7 +76,7 @@ body{
 }
 
 .layout-side-section .sidebar-label {
-    color: black;
+    color: white;
 }
 
 
@@ -91,16 +91,16 @@ body{
 }
 
 [data-theme="light"] {
-    --bg-color: #e8cdcd;
+    --bg-color: #5B8FF5;
     --text-bold: 600;
     --control-bg-on-gray:white;
-    --disabled-control-bg: #e8cdcd;
+    --disabled-control-bg: #5B8FF5;
     --heading-color: black;
     --border-color:#f2f2f2;
-    --avatar-frame-bg: #e8cdcd;
+    --avatar-frame-bg: #5B8FF5;
     --margin-lg: 15px;
     --sidebar-select-color: #d9d9d9;
-    --awesomplete-hover-bg: #e8cdcd;
+    --awesomplete-hover-bg: #5B8FF5;
     --scroll-bg: white;
     --scroll-color: gray;
 }
